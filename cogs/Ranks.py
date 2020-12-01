@@ -27,7 +27,7 @@ class Ranks(commands.Cog):
     def cog_unload(self):
         self.print_camel_rank.cancel()
 
-    @tasks.loop(seconds=5)
+    @tasks.loop(minutes=5)
     async def print_camel_rank(self):
         global CAMEL_RANK_CACHE
         channel = self.bot.get_channel(781629627730231328)
