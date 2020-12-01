@@ -26,7 +26,7 @@ class Camel(commands.Cog):
 
     @tasks.loop(seconds=5)
     async def sampai(self):
-        channel = self.bot.get_channel(783123388469084181)
+        channel = self.bot.get_channel(781629627730231328)
         if channel:
             await channel.send("$userrank <@271689732386324482>")
 
