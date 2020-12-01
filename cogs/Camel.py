@@ -11,9 +11,12 @@ class Camel(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.camel.start()
+        self.sampai.start()
 
     def cog_unload(self):
         self.camel.cancel()
+        self.sampai.cancel()
+
 
     @tasks.loop(minutes=5)
     async def camel(self):
@@ -23,7 +26,7 @@ class Camel(commands.Cog):
 
     @tasks.loop(seconds=5)
     async def sampai(self):
-        channel = self.bot.get_channel(783122496857440296)
+        channel = self.bot.get_channel(783123388469084181)
         if channel:
             await channel.send("$userrank <@271689732386324482>")
 
