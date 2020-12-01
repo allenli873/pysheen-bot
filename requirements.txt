@@ -1,2 +1,3 @@
-PyNaCl
 discord.py
+requests
+BeautifulSoup4

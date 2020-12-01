@@ -3,6 +3,7 @@ import random
 import urllib
 import asyncio
 import time
+import sys
 
 import discord
 
@@ -10,18 +11,17 @@ from discord.ext import commands, tasks
 from discord.utils import get
 
 
-
-def main():
+if __name__ == '__main__':
     token = os.environ.get('BOT_TOKEN')
 
     if not token:
         print('Token required')
-        return
+        sys.exit(0)
 
     pfx = '~'
 
     bot = commands.Bot(command_prefix=pfx)
-    bot.load_extension("cogs.Camel")
+    bot.load_extension("cogs.Ranks")
     bot.load_extension("cogs.Misc_Commands")
     bot.run(token)
 
@@ -38,16 +38,14 @@ def main():
             await message.delete()
             await message.channel.send("lmao u tryin to troll or smth mate smh")
 
-        poss = [722260161456111657, 560245352129888257, 574072152760778753, 520454991618506772, 
+        poss = [722260161456111657, 560245352129888257, 574072152760778753, 520454991618506772,
                 743291316720500836, 589171911305461965, 589171618534653955]
-        channel = bot.get_channel(message.channel.id)
         if "pysh" in message.content.lower() or "push" in message.content.lower():
-            if random.randint(1, 10) <= 5:
-                emoji = bot.get_emoji(poss[random.randint(0, len(poss) - 1)])
+            if random.random() < 0.5:
+                emoji = bot.get_emoji(random.choice(poss))
                 await message.add_reaction(emoji)
         await bot.process_commands(message)
 
-main()
 # @bot.command(name='ready')
 # async def startStack(ctx):
 #     if ctx.author in cur_players:

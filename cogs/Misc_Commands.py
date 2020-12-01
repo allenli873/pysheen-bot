@@ -52,11 +52,9 @@ class Misc_Commands(commands.Cog):
 
     @commands.command(name='amongus')
     async def among_us(self, ctx):
-        global is_connected
         if ctx.author.voice == None:
             await ctx.send("Error: please connect to a VC channel")
             return
-        is_connected = True
         channel = ctx.author.voice.channel
         await channel.connect()
 
@@ -87,8 +85,6 @@ class Misc_Commands(commands.Cog):
 
     @commands.command(name='end')
     async def end_game(self, ctx):
-        global is_connected
-        is_connected = False
         await ctx.voice_client.disconnect()
 
 def setup(bot):
