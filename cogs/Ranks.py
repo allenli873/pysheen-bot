@@ -29,18 +29,25 @@ class Ranks(commands.Cog):
 
     @tasks.loop(minutes=5)
     async def print_camel_rank(self):
-        global CAMEL_RANK_CACHE
         channel = self.bot.get_channel(781629627730231328)
         if not channel:
             return
-        rank: str = self.get_rank("camellCase#NA1")
-        if rank:
-            await channel.send(rank)
-            if CAMEL_RANK_CACHE != rank and len(CAMEL_RANK_CACHE) > 0:
-                await channel.send(f'<@&781636133762629632>, camel rank has changed to {rank} !')
-            CAMEL_RANK_CACHE = rank
-        else:
-            await channel.send('bad')
+        await channel.send("$camel")
+
+    # @tasks.loop(minutes=5)
+    # async def print_camel_rank(self):
+    #     global CAMEL_RANK_CACHE
+    #     channel = self.bot.get_channel(781629627730231328)
+    #     if not channel:
+    #         return
+    #     rank: str = self.get_rank("camellCase#NA1")
+    #     if rank:
+    #         await channel.send(rank)
+    #         if CAMEL_RANK_CACHE != rank and len(CAMEL_RANK_CACHE) > 0:
+    #             await channel.send(f'<@&781636133762629632>, camel rank has changed to {rank} !')
+    #         CAMEL_RANK_CACHE = rank
+    #     else:
+    #         await channel.send('bad')
 
     @commands.command(name='rank')
     async def rank_of(self, ctx, *args):
