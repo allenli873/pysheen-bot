@@ -32,7 +32,7 @@ class Ranks(commands.Cog):
         channel = self.bot.get_channel(781629627730231328)
         if not channel:
             return
-        await channel.send("$camel")
+        await channel.send("`camel")
 
     # @tasks.loop(minutes=5)
     # async def print_camel_rank(self):
