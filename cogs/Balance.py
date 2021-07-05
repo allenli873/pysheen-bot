@@ -32,7 +32,7 @@ class Balance(commands.Cog):
             except gspread.exceptions.CellNotFound:
                 await ctx.message.channel.send("Could not find player {}".format(name))
                 return
-            vals.append((name, int(sheet.cell(cell.row, cell.col + 1).value)))
+            vals.append((name, float(sheet.cell(cell.row, cell.col + 1).value)))
 
         mid = len(args) // 2
         best_abs_dif = 1000000
