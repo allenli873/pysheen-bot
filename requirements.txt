@@ -1,5 +1,4 @@
 discord.py
-json
 requests
 BeautifulSoup4
 gspread
