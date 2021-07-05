@@ -1,3 +1,7 @@
 discord.py
+json
 requests
 BeautifulSoup4
+gspread
+oauth2client
+PyNaCl

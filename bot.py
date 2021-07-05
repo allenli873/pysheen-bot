@@ -23,6 +23,7 @@ if __name__ == '__main__':
     bot = commands.Bot(command_prefix=pfx)
     bot.load_extension("cogs.Ranks")
     bot.load_extension("cogs.Misc_Commands")
+    bot.load_extension("cogs.Balance")
     bot.run(token)
 
     @bot.event
