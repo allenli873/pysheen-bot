@@ -72,6 +72,10 @@ class Balance(commands.Cog):
             await ctx.message.channel.send("Enter a number (1 or 2) indicating the winning team")
             return
 
+        if len(self.teams) == 0:
+            await ctx.message.channel.send("No game to update elo for")
+            return
+
         mid = len(self.teams) // 2
         winners = [name.lower() for name, _ in self.teams[:mid]]
         losers = [name.lower() for name, _ in self.teams[mid:]]
@@ -103,6 +107,8 @@ class Balance(commands.Cog):
         res = [res]
 
         sheet.update('A{}:{}{}'.format(len(sheet_content) + 1, chr(ord('A') + len(sheet_content[0]) - 1), len(sheet_content) +  1), res)
+
+        self.teams = []
 
         await ctx.message.channel.send("Good job team {}, tell your opponents they gotta get good, especially {}".format(winning_team, random.choice(losers)))
 
